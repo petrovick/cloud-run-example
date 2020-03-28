@@ -1,0 +1,363 @@
+openapi: "3.0.2"
+info:
+  title: Catalogo API
+  version: "1.0"
+servers:
+  - url: http://localhost:3000/api
+    description: Developer Server
+  - url: https://sagah-api-catalogo-v45h76qtra-uc.a.run.app/api
+    description: Staging Server
+tags:
+  - name: auth
+  - name: area
+  - name: flow
+  - name: teacher
+  - name: course
+  - name: ua
+  - name: flow
+components:
+  schemas:
+    session:
+      type: object
+      properties:
+        token:
+          type: string
+    authRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    ua:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    discipline:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+    teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        disciplines:
+          type: array
+          items:
+            $ref: "#/components/schemas/discipline"
+    area:
+      type: object
+      properties:
+        id:
+          type: integer
+        area:
+          type: string
+    course:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        clientId:
+          type: integer
+    subarea:
+      type: object
+      properties:
+        id:
+          type: integer
+        area:
+          type: string
+    formation:
+      type: object
+      properties:
+        id:
+          type: integer
+        area:
+          type: string
+    flow:
+      type: object
+      properties:
+        flow:
+          type: string
+        status:
+          type: string
+    message:
+      type: object
+      properties:
+        message:
+          type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  /v1/session:
+    post:
+      tags:
+        - "auth"
+      description: Authenticate User
+      requestBody:
+        content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/authRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/session"
+        "401":
+          description: Unable to authenticate user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+  /v1/session/revalidate:
+    post:
+      tags:
+        - "auth"
+      description: Revalidate User Token
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/session"
+        "401":
+          description: Unable to authenticate user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+  /v1/area:
+    get:
+      tags:
+        - "area"
+      description: List all areas
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/area"
+  /v1/area/{areaId}/formation:
+    get:
+      parameters:
+        - in: path
+          name: areaId 
+          required: true
+          schema:
+            type: integer
+      tags:
+        - "area"
+      description: List all formations by areaId
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/formation"
+  /v1/area/{areaId}/formation/{formationId}/subarea:
+    get:
+      parameters:
+        - in: path
+          name: areaId 
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: formationId 
+          required: true
+          schema:
+            type: integer
+      tags:
+        - "area"
+      description: List all subareas by areaId and formationId
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/subarea"
+  /v1/ua/bySubAreaId/{subAreaId}:
+    get:
+      tags:
+        - ua
+      description: List all uas By Sub Area Id
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+        - in: query
+          name: nPerPage
+          schema:
+            type: integer
+          required: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ua"
+  /v1/ua/bySubAreaName:
+    get:
+      tags:
+        - "ua"
+      description: List all UAs by Sub Area Name
+      parameters:
+        - in: query
+          name: subAreaName
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+        - in: query
+          name: nPerPage
+          schema:
+            type: integer
+          required: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ua"
+  /v1/area/:clientId/courses:
+    get:
+      tags:
+        - "course"
+      description:  List all client"s courses
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/course"
+  /v1/area/:clientId/courseId/courses:
+    get:
+      tags:
+        - "course"
+      description:  List all client"s courses
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/course"
+  /v1/flow:
+    post:
+      tags:
+        - "flow"
+      description: Insert flow for client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/flow"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+  /v1/flow/{id}:
+    put:
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          schema:
+            type: integer
+      tags:
+        - "flow"
+      description: Update flow for client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/flow"
+      responses:
+        "404":
+          description: Flow not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+        "403":
+          description: Flow does not belong to the user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/message"
+  /v1/teacher/{id}:
+    get:
+      tags: 
+        - teacher
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          schema:
+            type: integer
+      description:  Find teacher and all disciplines
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/teacher"
+
+security:
+  - bearerAuth: []

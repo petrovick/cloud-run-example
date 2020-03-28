@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "petrovickdevops",
+  "private_key_id": "a520d157db387d868088daa9edbf55dca395d0c0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrA20DDEOCBtXJ\n8CYc9qqktnSsBwaw8URBTAso7uoXsVhvpdAl9PAqGtLYqiKxwscfzTMIhcjhW9d9\n9I/Ui8cDNuUFVcDqCro3Bgm5tjfj2m735njrJfnqxq8mCVVGmHeNH3TA5smEbVO8\nNWeOSo9vP4uTucbzPlWHy/CrWWRHwZsIahAEDOuo+808tx/MPAKe9yttNgNnnelC\ngQq4ZsCJPuD6OaTQJtMDTxPn6BKsix+pqrj7Vr6NpTCKVPymU+lEGpug6yCTnDsi\njIUb0GlD3eBMYYFHD5qAbph6+4Y4OdpzmNYD1/ZNuG2IYErr1wtbERPh7hxRk5h6\n0v7PIwFNAgMBAAECggEAUiVQoXSsHtLasehF3obMPFeaXqH3YFpcX4NAHxb4Yo4h\nPWwoOntYO9lrq4C6LqoxzUBbwb3F2x6rOgkWZ9IGtDATvcbN5n5lqZWgaVEysqQT\nxseyEL5KuLBcpMg56rHFR4gzJJAXf6GmZdM/XZXKJXWgPcMw4lnwas0XW6+SYHbB\nyRrpHZgkJNz3muZaadDlEAR1iiAC8UagoIScHdiquMOnCEIpzoX5VlRD1Iz/FXp9\naIgyqodDMk6Q44gDZtY7PwXg6G4hn2749Z1pkhWRs3Bt7A5/xWMjg73UUFW9g5iI\nev/SCpZ9CnTJ89bgXEASuEWWVR6s4SbuDEHbr5O5bwKBgQDWFZi7nldrDUrRO6E7\nZEAbp4qIUBiGL7Ph/Bo7x10CTYMX63sR3YGm2Di5a91hEXQwxgLdM5sRDyvUv7ZA\nJrfvnTlF2iPfqKB/Q0wnW4X6SgvTO32+w3iqP7BcKQzlpoUwUBpGU5IA1BJsWk+S\nVromK15CvdN+HgnZ3+SwA5yzMwKBgQDMfwMYiI13bVV4klLeG0fBLX9/uPX5oLke\ngtUv7a1e9paHutD7//JoUowPHlV4fJofta0osvoKUxRYWMbT5UATGEraReO8TOiH\n7qJZ+U2eckqOdW0tEqYX4qDjAC0r+1P7f81zHQfYcb/kxQqsWdOx9LPIqFvm3cqi\n7SV3vYF5fwKBgBN5v31B+F3qxaWnMRHAGvzpDvc7oh+C83BZiOFrT5DIEGb6qyWC\n6yqMfQyRPYB5IALX4KbS7QZuROSD1EadvxnzSaSLJbxRENjC/IiQEO4mElFTFitm\niPGj/Z1EtsGllnRAtUM0kxG0OUDWLmr3rNOQGnEj57uPbAIAFkPU8Ep1AoGAMvhp\nfiDzGdRfnGjkTMYB8Y10nRIuBSVhXtB/cK3OK8BMrtIKqvUVp5kDnfUSmrB7/fFb\nkqxhlFc21/pwvHoEqX3BknwfEl0dDFyXjNON3DNij/WG29gtHAD51vrBR5giS6qE\nO+/9d56KlOvkCCdvk4iJkzcbiQS5MDjpwNm0PuMCgYEAkSLLWWkcadRy8AYcgnHS\nPENqQenGlX2uXg7qMSTsWoByLHrgGVmp5GuRecVUgcJxby+5hE31MdsFWjyrwcdY\nygcvjsPyylWQp1XEM34MxMQbTHjhD7cEyQ5//n2NF1foc0SR+wQ/90C+3n0XX5WN\nMSapGDqQVh2g6iApoc3hemk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "petrovickdevops@petrovickdevops.iam.gserviceaccount.com",
+  "client_id": "107825308944814804064",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/petrovickdevops%40petrovickdevops.iam.gserviceaccount.com"
+}
