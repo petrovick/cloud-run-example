@@ -14,11 +14,10 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "prettier/prettier": "error",
     "class-methods-use-this": "off", // Não usar this em classes javascript
     "no-param-reassign": "off", // Receba o parametros e faça alteração neste parametro
     "camelcase": "off", //Por padrao ESLInt pede que todas as variaveis sejam definidas como CamelCase,
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }], //Não declarar variaveis sem usar, a nao ser o "'next'
-
-    "prettier/prettier": "error"
   }
 }
